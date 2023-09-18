@@ -1,0 +1,7 @@
+name: Qubic
+version: '${project.version}'
+main: me.tapeline.qubic.QubicPlugin
+api-version: '1.18'
+commands:
+  qubic:
+    usage: "/qubic (reload|stop|stopall|list|info) [<name to stop>]"
