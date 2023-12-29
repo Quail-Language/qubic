@@ -33,7 +33,9 @@ public class EntitySetSilent extends QBuiltinFunc {
 
     @Override
     public QObject action(Runtime runtime, HashMap<String, QObject> args, List<QObject> argList) throws RuntimeStriker {
-
+        McEntity thisEntity = McEntity.validate(runtime, args.get("this"));
+        thisEntity.getEntity().setSilent(args.get("isSilent").boolValue());
+        return Val();
     }
 
 }

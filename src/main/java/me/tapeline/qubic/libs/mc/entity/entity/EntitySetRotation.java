@@ -46,7 +46,8 @@ public class EntitySetRotation extends QBuiltinFunc {
     @Override
     public QObject action(Runtime runtime, HashMap<String, QObject> args, List<QObject> argList) throws RuntimeStriker {
         McEntity thisEntity = McEntity.validate(runtime, args.get("this"));
-        thisEntity.getEntity().setRotation(args.get("yaw").boolValue());
+        thisEntity.getEntity().setRotation((float) args.get("yaw").numValue(),
+                (float) args.get("pitch").numValue());
         return Val();
     }
 

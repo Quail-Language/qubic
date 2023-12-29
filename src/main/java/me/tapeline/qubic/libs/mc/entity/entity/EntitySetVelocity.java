@@ -7,6 +7,7 @@ import me.tapeline.quailj.typing.classes.QObject;
 import me.tapeline.quailj.typing.utils.FuncArgument;
 import me.tapeline.quailj.typing.classes.utils.QBuiltinFunc;
 import me.tapeline.quailj.runtime.RuntimeStriker;
+import org.bukkit.util.Vector;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -39,7 +40,13 @@ public class EntitySetVelocity extends QBuiltinFunc {
 
     @Override
     public QObject action(Runtime runtime, HashMap<String, QObject> args, List<QObject> argList) throws RuntimeStriker {
-
+        McEntity thisEntity = McEntity.validate(runtime, args.get("this"));
+        thisEntity.getEntity().setVelocity(new Vector(
+                args.get("velocity").listValue().get(0).numValue(),
+                args.get("velocity").listValue().get(1).numValue(),
+                args.get("velocity").listValue().get(2).numValue()
+        ));
+        return Val();
     }
 
 }

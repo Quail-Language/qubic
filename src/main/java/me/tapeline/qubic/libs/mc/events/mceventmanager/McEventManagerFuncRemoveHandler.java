@@ -53,13 +53,13 @@ public class McEventManagerFuncRemoveHandler extends QBuiltinFunc {
         if (!(args.get("this") instanceof me.tapeline.quailj.runtime.std.event.eventmanager.EventManager))
             runtime.error(new QUnsuitableTypeException("EventManager", args.get("this")));
         me.tapeline.quailj.runtime.std.event.eventmanager.EventManager thisManager = ((EventManager) args.get("this"));
-        if (thisManager.eventHandlers == null || thisManager.eventQueue == null)
+        if (thisManager.getEventHandlers() == null || thisManager.getEventQueue() == null)
             runtime.error(new EventManagerNotInitializedException());
         QFunc handler = ((QFunc) args.get("handler"));
         String event = args.get("event").toString();
 
-        if (thisManager.eventHandlers.containsKey(event))
-            thisManager.eventHandlers.get(event).remove(handler);
+        if (thisManager.getEventHandlers().containsKey(event))
+            thisManager.getEventHandlers().get(event).remove(handler);
 
         return Val();
     }
