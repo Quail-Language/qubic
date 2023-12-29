@@ -11,8 +11,9 @@ public class QubicRuntime extends Runtime {
     public QubicRuntime() {
     }
 
-    public QubicRuntime(Node root, String code, File scriptHome, IO io, boolean doProfile) {
-        super(root, code, scriptHome, io, doProfile);
+    public QubicRuntime(Node root, String code, File scriptFile, File scriptHome,
+                        IO io, boolean doProfile, boolean doDebug) {
+        super(root, code, scriptFile, scriptHome, io, doProfile, doDebug);
     }
 
 }

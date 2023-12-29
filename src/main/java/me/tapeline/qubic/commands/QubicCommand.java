@@ -19,7 +19,7 @@ public class QubicCommand implements CommandExecutor {
                              @NotNull String commandString, @NotNull String[] args) {
         if (args.length == 0) return false;
         if (args[0].equalsIgnoreCase("info")) {
-            commandSender.sendMessage("Qubic v1.0", "Quail-qre v2.0-alpha", "© Tapeline 2021-2023");
+            commandSender.sendMessage("Qubic v1.0", "Quail-qre v2.0-alpha4", "© Tapeline 2021-2023");
         } else if (args[0].equalsIgnoreCase("list")) {
             commandSender.sendMessage("Enabled apps:");
             commandSender.sendMessage(AppManager.getEnabledApps().toArray(new String[0]));

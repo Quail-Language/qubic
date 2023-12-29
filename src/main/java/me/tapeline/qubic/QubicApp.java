@@ -25,7 +25,9 @@ public class QubicApp {
     public void loadConfig() {
         Yaml yaml = new Yaml();
         try {
-            Map<String, Object> packageCfg = yaml.load(FileUtils.readFileToString(packageFile, "UTF-8"));
+            Map<String, Object> packageCfg = yaml.load(FileUtils.readFileToString(
+                    packageFile, "UTF-8"
+            ));
             mainScript = packageCfg.get("main").toString();
             if (mainScript == null)
                 throw new IllegalArgumentException("main attr for app " + name + " is null");

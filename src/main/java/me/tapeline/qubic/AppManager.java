@@ -83,7 +83,13 @@ public class AppManager {
         Parser parser = new Parser(code, tokens);
         BlockNode mainNode = parser.parse();
         QubicRuntime runtime = new QubicRuntime(
-                mainNode, code, new File("apps/" + app.getName()), new DefaultIO(), false
+                mainNode,
+                code,
+                new File("apps/" + app.getName() + "/" + app.getMainScript()),
+                new File("apps/" + app.getName()),
+                new DefaultIO(),
+                false,
+                false
         );
         Thread runtimeThread = new Thread(() -> {
             try {
